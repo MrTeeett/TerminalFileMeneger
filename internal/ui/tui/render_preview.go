@@ -1,10 +1,10 @@
 package tui
 
 import (
-    "github.com/charmbracelet/lipgloss"
-    "path/filepath"
-    "strings"
-    "github.com/MrTeeett/TerminalFileMeneger/internal/ui/preview"
+	"github.com/MrTeeett/TerminalFileMeneger/internal/ui/preview"
+	"github.com/charmbracelet/lipgloss"
+	"path/filepath"
+	"strings"
 )
 
 // isImagePath returns true for common image file extensions.

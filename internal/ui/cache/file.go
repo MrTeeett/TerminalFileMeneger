@@ -1,7 +1,7 @@
 package cache
 
 import (
-    "github.com/MrTeeett/TerminalFileMeneger/internal/ui/preview"
+	"github.com/MrTeeett/TerminalFileMeneger/internal/ui/preview"
 )
 
 type FileCache struct {

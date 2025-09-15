@@ -1,7 +1,7 @@
 package cache
 
 import (
-    "github.com/MrTeeett/TerminalFileMeneger/internal/ui/panels"
+	"github.com/MrTeeett/TerminalFileMeneger/internal/ui/panels"
 )
 
 type DirCache struct {

@@ -120,7 +120,3 @@ go build -o bin/tfm ./cmd/tfm
 См. LICENSE (MIT).
 
 ---
-
-## Благодарности
-- Charmbracelet: Bubble Tea / Bubbles / Lip Gloss  
-- Сообщество терминальных приложений за идеи и вдохновение  
