@@ -1,0 +1,148 @@
+# Конфигурация tfm (пример)
+# Скопируйте этот файл в:
+#   ~/.config/tfm/config.toml
+# или задайте свой путь флагом: --config /path/to/config.toml
+
+# Общие настройки
+show_hidden = false        # Показывать скрытые файлы (dotfiles)
+theme_name  = "default"    # Имя темы (на будущее)
+keymap      = "vim"         # Раскладка клавиш: vim|emacs (на будущее)
+show_preview = true        # Включить правую панель предпросмотра
+open_dirs_right = false    # Открывать каталоги справа (не заменяя левую панель)
+right_pane_width = 40      # Ширина правой панели в процентах (10..80)
+# Управление inline-картинками (реальный предпросмотр изображений в поддерживаемых терминалах)
+inline_images = true       # Отключите (false), чтобы показывать только текст/ASCII предпросмотр
+# Профиль цветов: auto|none|ansi|256|truecolor
+color_profile = "auto"
+# Прозрачность фона (поддерживается терминалом/композитором): 0..1 или 0..100%
+background_opacity = 1.0
+# Размытие фона (только если поддерживается терминалом/окружением), hint-флаг
+blur = false
+
+# Кастомные бинды клавиш (любой ремап)
+# Секция [keys] описывает соответствие: "клавиши" = "действие"
+# Форматы клавиш:
+#   - одиночные: "j", "k", "enter", "pgdown", "ctrl+c"
+#   - последовательности: "g g", "y y" (равноценны "gg", "yy")
+#   - модификаторы: "ctrl+d", "shift+tab"
+# Доступные действия (MVP):
+#   left|right|up|down|top|bottom|toggle-hidden|
+#   new-tab|next-tab|prev-tab|close-tab|
+#   page-down|page-up|half-page-down|half-page-up|
+#   quit|
+#   toggle-preview|toggle-right-open-mode|close-right|
+#   toggle-focus|focus-left|focus-right|
+#   copy|paste|copy-path|paste-path
+# Пример: полностью переключиться на стрелки
+[keys]
+# Навигация
+"up" = "up"
+"down" = "down"
+"left" = "left"
+"right" = "right"
+"enter" = "right"        # открыть каталог
+"backspace" = "left"       # к родителю
+
+# Vim-подобные (пример переопределений)
+# "j" = "down"
+# "k" = "up"
+# "h" = "left"
+# "l" = "right"
+# "g g" = "top"
+# "G" = "bottom"
+
+# Пейджинг
+"pgdown" = "page-down"
+"pgup"   = "page-up"
+"ctrl+d" = "half-page-down"
+"ctrl+u" = "half-page-up"
+
+# Вкладки
+"t" = "new-tab"
+"]" = "next-tab"
+"[" = "prev-tab"
+"w" = "close-tab"
+
+# Панель предпросмотра и правый режим
+"ctrl+p" = "toggle-preview"
+"ctrl+o" = "toggle-right-open-mode"
+"ctrl+x" = "close-right"
+
+# Фокус панелей
+"tab"    = "toggle-focus"
+# "ctrl+h" = "focus-left"
+# "ctrl+l" = "focus-right"
+
+# Выход и скрытые файлы
+"q" = "quit"
+"ctrl+c" = "quit"
+"." = "toggle-hidden"
+
+# Копирование/вставка (можно переназначить)
+# По умолчанию: "yy" = copy, "pp" = paste, "Y" = copy-path, "P" = paste-path
+# Примеры альтернативных биндов:
+# "ctrl+y" = "copy"
+# "ctrl+v" = "paste"
+# "alt+y"  = "copy-path"
+# "alt+p"  = "paste-path"
+
+# Стили темы. Поддерживаются секции:
+# [theme.header]   — строка заголовка
+# [theme.status]   — строка статуса
+# [theme.dir]      — строка каталога (когда не выделена)
+# [theme.selected] — выделенная строка (файл/каталог)
+# [theme.normal]   — обычная строка (файл)
+# Поля: fg, bg, bold, faint, reverse
+# Цвета: можно использовать имена/коды ANSI, например "red", "12", "#421946ff"
+
+# Примечание про раскладки: для буквенных клавиш (например, h/j/k/l) tfm
+# автоматически сопоставляет нажимаемые символы в русской раскладке их
+# физическим US-клавишам (ЙЦУКЕН→QWERTY). То есть навигация h/j/k/l будет
+# работать и при активной русской раскладке (р/о/л/д). Для других раскладок
+# можно задать явные бинды в секции [keys].
+
+[theme.header]
+bold = true
+# fg = ""
+# bg = ""
+
+[theme.status]
+faint = true
+# fg = ""
+# bg = ""
+
+[theme.dir]
+fg = "#421946ff"   # синий для каталогов
+
+[theme.selected]
+bold = true
+reverse = true      # инверсия цветов для наглядного выделения
+# fg = ""
+# bg = ""
+
+[theme.normal]
+# fg = ""
+# bg = ""
+
+# Настройки предпросмотра (альтернативный вариант секции)
+[preview]
+enabled = true
+width = 40
+inline_images = false   # Можно переопределить здесь; false — принудительно отключит реальные картинки
+color_profile = "auto"
+background_opacity = 1.0
+blur = false
+
+[view]
+open_dirs_right = false
+right_pane_width = 40
+background_opacity = 1.0
+blur = false
+
+# Кастомные команды (Ex-команды)
+[commands]
+# Примеры:
+# open = "xdg-open {path}"
+# pwd  = "echo {cwd}"
+# sel  = "echo {file}"
+code = "code {path}"
